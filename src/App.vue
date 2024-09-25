@@ -11,6 +11,7 @@ const items = ref ([
     {id:'4',label: 'Pollo'},
     {id:'5',label: 'Huevo'}
 ]);
+const newItem=ref("");
 </script>
 
 <template>
@@ -18,6 +19,7 @@ const items = ref ([
     <i class="material-icons shopping-cart-icon">local_mall</i>
     {{ header }}
     </h1>
+    <input v-model.lazy= "newItem" type="type" placeholder="Agregar articulo"> {{ newItem }}</input>
     <ul>
         <li v-for="item in items ":key="item.id"> 🎃{{ item.label }}</li>
     </ul>
