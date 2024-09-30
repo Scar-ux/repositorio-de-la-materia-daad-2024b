@@ -4,9 +4,10 @@ import { ref } from 'vue';
 const header = ref('App lista de compras');
 const items = ref([
   {id:'0', label: '10 bolillos'},
-  {id:'1', label: '1 crema de litro'},
-  {id:'2', label: '1/4 de jamon'},
-  {id:'3', label: '1 nutella'}
+  {id:'1', label: '1 pastel'},
+  {id:'2', label: '1 kilo de jamon'},
+  {id:'3', label: 'Nutella'},
+  {id:'4', label: 'Pan tostado'}
 ]);
 const newItem = ref("");
 const newItemHighPriority = ref(false);
@@ -22,7 +23,7 @@ const newItemHighPriority = ref(false);
   <!--Caja de seleccion de Prioridad-->
   <label>
     <input type="checkbox" v-model="newItemHighPriority" />
-    Alta Prioridad
+    Alta Prioridad 
   </label>
   <!--Boton-->
   <button class="btn btn-primary">
@@ -30,8 +31,6 @@ const newItemHighPriority = ref(false);
   </button>
   </form>
   <ul></ul>
-
-  
   {{ iceCreamFlavors }}
   <ul></ul>
   {{ newItemHighPriority }}
