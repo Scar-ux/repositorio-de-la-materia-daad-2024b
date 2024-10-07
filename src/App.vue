@@ -38,7 +38,7 @@ const activateEdition =(activate) => {
   <button v-else class="btn btn-primary" @click="activateEdition(true)">Agregar articulo </button>
   </div>
   <!--Colocando un hyperlink-->
-  <a v-bind:href="'https://' + newItem " target="_blank"> {{ newItem =="" ? "🌑Link" : newItem }}</a>
+  <a v-bind:href="'https://' + (newItem =='' ? 'www.google.com' : newItem)  " target="_blank"> {{ newItem =="" ? "🌑Link" : newItem }}</a>
 
   <!--Agrupando entradas de usuario-->
   <form 
