@@ -4,11 +4,11 @@ import { ref } from 'vue';
 //item
 const header = ref('App lista de compras');
 const items = ref([
-  {id:'0', label: '10 bolillos'},
-  {id:'1', label: '1 pastel'},
-  {id:'2', label: '1 kilo de jamon'},
-  {id:'3', label: 'Nutella'},
-  {id:'4', label: 'Pan tostado'}
+  {id:'0', label: '10 bolillos', purchased: false, Priority: true},
+  {id:'1', label: '1 pastel',purchased: false,Priority: true},
+  {id:'2', label: '1 kilo de jamon', purchased: true, Priority: true},
+  {id:'3', label: 'Nutella', purchased: true, Priority: false},
+  {id:'4', label: 'Pan tostado',purchased: false, Priority: true}
 ]);
 //item-model
 const saveItem=()=> { 'saveItem' 
@@ -65,8 +65,15 @@ const activateEdition =(activate) => {
   {{ newItemHighPriority }}
   <!-- Lista -->
   <ul>
-    <li v-for="item in items" :key="item.id"> 🎃 {{  item.label }} </li>
-  </ul>
+    <li 
+    v-for=" {label, id,purchased, Priority} in items" 
+    :key="id"
+    class="amazing"
+    :class="{strikeout: purchased,Priority: Priority}">
+    {{ Priority ? "🌸" : "🌑" }} {{ label }} 
+  </li>
+   
+    </ul>
   <p v-if=" items.length === 0"> 🌸 NO HAY ELEMENTOS EN LA LISTA🌸</p>
 </template>
 
