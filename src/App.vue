@@ -63,13 +63,24 @@ const activateEdition =(activate) => {
   {{ iceCreamFlavors }}
   <ul></ul>
   {{ newItemHighPriority }}
-  <!-- Lista -->
+  <!-- Lista objetos-->
   <ul>
     <li 
     v-for=" {label, id,purchased, Priority} in items" 
     :key="id"
     class="amazing"
     :class="{strikeout: purchased,Priority: Priority}">
+    {{ Priority ? "🌸" : "🌑" }} {{ label }} 
+  </li>
+    </ul>
+
+    <!-- Lista clases como arreglos--> 
+
+    <ul>
+    <li 
+    v-for=" {label, id,purchased, Priority} in items" 
+    :key="id"
+    :class="[purchased ? 'strikeout':'', Priority ? 'Priority' : '']">
     {{ Priority ? "🌸" : "🌑" }} {{ label }} 
   </li>
    
