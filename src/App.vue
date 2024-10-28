@@ -35,6 +35,11 @@ const characterCount = computed(()=>{
   return newItem.value.length;
 });
 
+// Creando propiedad computada que invierte items de la lista
+const reversedItems = computed(() => {
+  return [...items.value].reverse(); 
+});
+
 </script>
 
 <template>
@@ -84,16 +89,15 @@ const characterCount = computed(()=>{
   
   <!-- Lista objetos-->
   <ul>
-    <li 
-    v-for="item in items" 
-    @click="togglePurchased(item)"
-    v-bind:key="item.id"
-    :class="{strikeout:item.purchased,Priority:item.highPriority}"
-    >
-    🌑{{ item.label }}
+    ...
+<li 
+	v-for="({ id, label, purchased, highPriority }, index) in reversedItems"
+  :class="{ strikeout: purchased, priority: highPriority }" 
+	@click="togglePurchased(reversedItems[index])" 
+  v-bind:key="id">
+	  🔹 {{ label }}
+</li>
 
-    
-  </li>
     </ul>
 
   <p v-if=" items.length === 0"> 🌸 NO HAY ELEMENTOS EN LA LISTA🌸</p>
