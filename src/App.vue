@@ -22,6 +22,11 @@ const newItemHighPriority = ref(false);
 const editing =ref(true);
 const activateEdition =(activate) => { 
   editing.value = activate; 
+
+}; 
+//Alternando estado de compra del item
+const togglePurchased =(item)=>{
+  item.purchased =!item.purchased; 
 }; 
 
 </script>
@@ -63,29 +68,24 @@ const activateEdition =(activate) => {
   {{ iceCreamFlavors }}
   <ul></ul>
   {{ newItemHighPriority }}
+  
   <!-- Lista objetos-->
   <ul>
     <li 
-    v-for=" {label, id,purchased, Priority} in items" 
-    :key="id"
-    class="amazing"
-    :class="{strikeout: purchased,Priority: Priority}">
+    v-for=" ({label, id,purchased, Priority},index) in items" 
+    @click="togglePurchased(items[index])"
+    v-bind:key="id"
+    :class="{strikeout: purchased,Priority: Priority}"
+    >
     {{ Priority ? "🌸" : "🌑" }} {{ label }} 
+    
   </li>
     </ul>
 
-    <!-- Lista clases como arreglos--> 
-
-    <ul>
-    <li 
-    v-for=" {label, id,purchased, Priority} in items" 
-    :key="id"
-    :class="[purchased ? 'strikeout':'', Priority ? 'Priority' : '']">
-    {{ Priority ? "🌸" : "🌑" }} {{ label }} 
-  </li>
-   
-    </ul>
   <p v-if=" items.length === 0"> 🌸 NO HAY ELEMENTOS EN LA LISTA🌸</p>
+
+
+
 </template>
 
 <style scoped>
