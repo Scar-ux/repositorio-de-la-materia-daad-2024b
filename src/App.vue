@@ -14,8 +14,22 @@ const items = ref([
 const saveItem=()=> { 'saveItem' 
   items.value.push({id: items.value.length + 1, label: newItem.value});
   newItem.value=''; 
+
+   // Reiniciendo la entrada de texto
+   newItem.value = "";
+  newItemHighPriority.value = false;
+};
+// Funcion que alterna el valor de la variable editing
+const doEdit = (edit) => {
+  editing.value = edit;
+  // Limpiando la entrada de texto
+  // en caso de que se oculte o muestre
+  // el formulario
+  newItem.value = "";
+  newItemHighPriority.value = false;
+};
   //Clean de input 
-}; 
+
 //formulario
 const newItem = ref("");
 const newItemHighPriority = ref(false);
@@ -28,6 +42,8 @@ const activateEdition =(activate) => {
 const togglePurchased =(item)=>{
   item.purchased =!item.purchased; 
 }; 
+
+
 
 //creando una propiedad computada 
 const characterCount = computed(()=>{
