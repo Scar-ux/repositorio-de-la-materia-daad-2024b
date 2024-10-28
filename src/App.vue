@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref,computed } from 'vue';  
 // Modelo
 //item
 const header = ref('App lista de compras');
@@ -28,6 +28,12 @@ const activateEdition =(activate) => {
 const togglePurchased =(item)=>{
   item.purchased =!item.purchased; 
 }; 
+
+//creando una propiedad computada 
+const characterCount = computed(()=>{
+  // Toda propiedad computada debe regresar un valor
+  return newItem.value.length;
+});
 
 </script>
 
@@ -63,21 +69,29 @@ const togglePurchased =(item)=>{
   class="btn btn-primary">
     Salvar Articulo
   </button>
+
+<!--Contador-->
+<p class="counter">
+    {{ characterCount }} /200
+    </p>
+
   </form>
   <ul></ul>
   {{ iceCreamFlavors }}
   <ul></ul>
   {{ newItemHighPriority }}
+
   
   <!-- Lista objetos-->
   <ul>
     <li 
-    v-for=" ({label, id,purchased, Priority},index) in items" 
-    @click="togglePurchased(items[index])"
-    v-bind:key="id"
-    :class="{strikeout: purchased,Priority: Priority}"
+    v-for="item in items" 
+    @click="togglePurchased(item)"
+    v-bind:key="item.id"
+    :class="{strikeout:item.purchased,Priority:item.highPriority}"
     >
-    {{ Priority ? "🌸" : "🌑" }} {{ label }} 
+    🌑{{ item.label }}
+
     
   </li>
     </ul>
