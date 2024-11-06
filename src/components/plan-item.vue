@@ -1,5 +1,4 @@
 <template>
-    <template>
   <div class="plan">
     <div class="description">
       <span class="title">
@@ -16,12 +15,4 @@
 <style scoped>
 
 </style>
-  </template>
   
-  <script setup>
-  
-  </script>
-  
-  <style lang="scss" scoped>
-  
-  </style>
