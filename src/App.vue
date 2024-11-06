@@ -1,9 +1,11 @@
-<script setup></script>
+<script setup>
+import planItem from './components/plan-item.vue';
+</script>
 
 <template>
   <header>
     <div style="text-align: center;">
-      <span id="logo">ITGAM BOX EXPERIENCES</span><br>
+      <span id="logo">ITGAM BOX EXPERIENCES </span> <br>
       <img src="./assets/logo.png" alt="logo">
     </div>
   </header>
@@ -15,28 +17,10 @@
       Viajamos por el mundo para encontrar el mejor café de origen único para ti
     </h2>
 
-    <div class="plans">
-      <div class="plan">
-        <div class="description">
-          <span class="title">
-            El Soltero
-          </span>
-        </div>
-      </div>
-      <div class="plan">
-        <div class="description">
-          <span class="title">
-            El Curioso
-          </span>
-        </div>
-      </div>
-      <div class="plan">
-        <div class="description">
-          <span class="title">
-            El adicto
-          </span>
-        </div>
-      </div>
+        <div class="plans">
+      <plan-item>El soltero</plan-item>
+      <plan-item>El Curioso</plan-item>
+      <plan-item>El Adicto</plan-item>
     </div>
   </div>
 </template>
