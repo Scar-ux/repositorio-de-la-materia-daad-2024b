@@ -1,9 +1,12 @@
 <script setup>
-  import PlanPickerItem from '/PlanPickerItem.vue';
+  import PlanPickerItem from 'PlanPickerItem.vue';
   import { ref } from 'vue';
+  //Creando una referencia reactiva para almacenar el plan deseado 
+  const selectedPlan=ref(null)
   const plans = ref(['El cafetero', 'El chelero', 'El intelectual']);
   const selectPlan = (name) => {
-    console.log(name);
+    //Almacenar el plan seleccionado
+    selectedPlan.value =name; 
   };
 </script>
 
@@ -13,8 +16,10 @@
       v-for="plan in plans" 
       :key="plan"
       :name="plan"
-      @select="(name)=>{ console.log(name) }" />
+      @select="selectPlan"
+      :select-plan="selectedPlan"/>
     </div>
+    <p> {{ selectedPlan }} </p> 
 </template>
 
 <style scoped>
