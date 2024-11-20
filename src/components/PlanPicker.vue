@@ -1,5 +1,5 @@
 <script setup>
-  import PlanPickerItem from 'PlanPickerItem.vue';
+  import PlanPickerItem from './PlanPickerItem.vue';
   import { ref } from 'vue';
   //Creando una referencia reactiva para almacenar el plan deseado 
   const selectedPlan=ref(null)
@@ -19,7 +19,7 @@
       @select="selectPlan"
       :select-plan="selectedPlan"/>
     </div>
-    <p> {{ selectedPlan }} </p> 
+    
 </template>
 
 <style scoped>
