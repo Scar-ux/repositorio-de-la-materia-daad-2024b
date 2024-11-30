@@ -740,3 +740,7 @@ a:not(.btn):hover {
   background-color: blueviolet;
   color:white;
 }
+
+html {
+  font-family: sans-serif;
+}
