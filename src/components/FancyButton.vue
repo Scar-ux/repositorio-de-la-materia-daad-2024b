@@ -1,10 +1,16 @@
 <template>
-    <button>Hazme Clic!</button>
+    <button>
+      <slot></slot> 
+    </button>
   </template>
   
-  <script setup>
-  </script>
-  
   <style scoped>
-  
-  </style>
+  .content{
+  text-align: center;
+}
+button{
+  width: 12rem;
+  margin: 15px auto;
+  font-size: 2rem;
+}
+</style>
